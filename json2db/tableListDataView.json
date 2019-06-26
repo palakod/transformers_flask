@@ -1,0 +1,810 @@
+[
+
+
+{
+    "iD":0,
+    "tabId": 0,
+    "identification": "Georgia Power",
+    "pType":"pType-1",
+
+"table":[
+    {                                              
+    "name" : "Terminal Node",
+    "h1_key":"H1",
+    "x2_key":"X2",
+    "h2_key":"H2",
+    "x1_key":"X1",
+    "h4_key":"H4"                                                      
+} ,
+
+{                                                                  
+    "name":"Rotated Power",
+    "h1_key":"36.00",
+    "x2_key":"96.00",
+    "h2_key":"-",
+    "x1_key":"-",
+    "h4_key":"-"                                                
+},
+
+{                                                
+    "name":"Rated Voltage",
+    "h1_key":"115.50",
+    "x2_key":"20.708",
+    "h2_key":"-",
+    "x1_key":"-",
+    "h4_key":"-"                                                                                                   
+},
+
+{   
+    "name":"connection",
+    "h1_key":"D",
+    "x2_key":"Y",
+    "h2_key":"-",
+    "x1_key":"-",
+    "h4_key":"-"                                                                                                                   
+},
+
+{      
+    "name":"Regulation Type",
+    "h1_key":"L",
+    "x2_key":"NO",
+    "h2_key":"PM",
+    "x1_key":"NO",
+    "h4_key":"NO"                                                                                                                     
+}
+
+
+],
+
+"others":[
+  {
+    "freq":"60",
+    "wdg_lmb":"3",
+    "cooling_type":"3",
+    "cost_code":"3",
+
+
+    "phases":"3",
+    "cfr_vfr":"CFR",
+    "self_cool_ration":"1.67",
+    "fix_price_percentage":"0.0",
+
+    "receipt_margin_percentage":"0.0",
+    "eval_po":"0",
+    "oper_xtios":"Yes",
+
+    "loss_calc_at_step":"0",
+    "eval_pk":"0",
+    "det_costs":"Yes"
+
+}
+]
+},
+
+{
+  "iD":0,
+  "tabId": 1,
+  "identification": "Georgia Power",
+  "pType":"pType-2",
+
+"table":[
+  {                                              
+  "name" : "Terminal Node",
+  "h1_key":"H1",
+  "x2_key":"X2",
+  "h2_key":"H2",
+  "x1_key":"X1",
+  "h4_key":"H4"                                                      
+} ,
+
+{                                                                  
+  "name":"Rotated Power",
+  "h1_key":"46.00",
+  "x2_key":"96.00",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                
+},
+
+{                                                
+  "name":"Rated Voltage",
+  "h1_key":"115.50",
+  "x2_key":"20.708",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                                                                   
+},
+
+{   
+  "name":"connection",
+  "h1_key":"D",
+  "x2_key":"Y",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                                                                                   
+},
+
+{      
+  "name":"Regulation Type",
+  "h1_key":"L",
+  "x2_key":"NO",
+  "h2_key":"PM",
+  "x1_key":"NO",
+  "h4_key":"NO"                                                                                                                     
+}
+
+
+],
+"others":[
+  {
+    "freq":"50",
+    "wdg_lmb":"3",
+    "cooling_type":"3",
+    "cost_code":"3",
+
+
+    "phases":"3",
+    "cfr_vfr":"CFR",
+    "self_cool_ration":"1.67",
+    "fix_price_percentage":"0.0",
+
+    "receipt_margin_percentage":"0.0",
+    "eval_po":"0",
+    "oper_xtios":"Yes",
+
+    "loss_calc_at_step":"0",
+    "eval_pk":"0",
+    "det_costs":"Yes"
+
+}
+]
+},
+
+
+
+{
+  "iD":1,
+  "tabId": 0,
+  "identification": "US Power Generating Company",
+  "pType":"pType-3",
+
+"table":[
+  {                                              
+  "name" : "Terminal Node",
+  "h1_key":"H1",
+  "x2_key":"X2",
+  "h2_key":"H2",
+  "x1_key":"X1",
+  "h4_key":"H4"                                                      
+} ,
+
+{                                                                  
+  "name":"Rotated Power",
+  "h1_key":"36.00",
+  "x2_key":"96.00",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                
+},
+
+{                                                
+  "name":"Rated Voltage",
+  "h1_key":"115.50",
+  "x2_key":"20.708",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                                                                   
+},
+
+{   
+  "name":"connection",
+  "h1_key":"D",
+  "x2_key":"Y",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                                                                                   
+},
+
+{      
+  "name":"Regulation Type",
+  "h1_key":"L",
+  "x2_key":"NO",
+  "h2_key":"PM",
+  "x1_key":"NO",
+  "h4_key":"NO"                                                                                                                     
+}
+
+
+],
+
+"others":[
+{
+  "freq":"60",
+  "wdg_lmb":"3",
+  "cooling_type":"3",
+  "cost_code":"3",
+
+
+  "phases":"3",
+  "cfr_vfr":"CFR",
+  "self_cool_ration":"1.67",
+  "fix_price_percentage":"0.0",
+
+  "receipt_margin_percentage":"0.0",
+  "eval_po":"0",
+  "oper_xtios":"Yes",
+
+  "loss_calc_at_step":"0",
+  "eval_pk":"0",
+  "det_costs":"Yes"
+
+}
+]
+},
+
+{
+"iD":1,
+"tabId": 1,
+"identification": "US Power Generating Comapny",
+"pType":"pType-4",
+
+"table":[
+{                                              
+"name" : "Terminal Node",
+"h1_key":"H1",
+"x2_key":"X2",
+"h2_key":"H2",
+"x1_key":"X1",
+"h4_key":"H4"                                                      
+} ,
+
+{                                                                  
+"name":"Rotated Power",
+"h1_key":"46.00",
+"x2_key":"96.00",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                
+},
+
+{                                                
+"name":"Rated Voltage",
+"h1_key":"115.50",
+"x2_key":"20.708",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                                                                   
+},
+
+{   
+"name":"connection",
+"h1_key":"D",
+"x2_key":"Y",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                                                                                   
+},
+
+{      
+"name":"Regulation Type",
+"h1_key":"L",
+"x2_key":"NO",
+"h2_key":"PM",
+"x1_key":"NO",
+"h4_key":"NO"                                                                                                                     
+}
+
+
+],
+"others":[
+{
+  "freq":"50",
+  "wdg_lmb":"3",
+  "cooling_type":"3",
+  "cost_code":"3",
+
+
+  "phases":"3",
+  "cfr_vfr":"CFR",
+  "self_cool_ration":"1.67",
+  "fix_price_percentage":"0.0",
+
+  "receipt_margin_percentage":"0.0",
+  "eval_po":"0",
+  "oper_xtios":"Yes",
+
+  "loss_calc_at_step":"0",
+  "eval_pk":"0",
+  "det_costs":"Yes"
+
+}
+]
+},
+
+
+
+{
+  "iD":2,
+  "tabId": 0,
+  "identification": "Reliance Power",
+  "pType":"pType-5",
+
+"table":[
+  {                                              
+  "name" : "Terminal Node",
+  "h1_key":"H1",
+  "x2_key":"X2",
+  "h2_key":"H2",
+  "x1_key":"X1",
+  "h4_key":"H4"                                                      
+} ,
+
+{                                                                  
+  "name":"Rotated Power",
+  "h1_key":"36.00",
+  "x2_key":"96.00",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                
+},
+
+{                                                
+  "name":"Rated Voltage",
+  "h1_key":"115.50",
+  "x2_key":"20.708",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                                                                   
+},
+
+{   
+  "name":"connection",
+  "h1_key":"D",
+  "x2_key":"Y",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                                                                                   
+},
+
+{      
+  "name":"Regulation Type",
+  "h1_key":"L",
+  "x2_key":"NO",
+  "h2_key":"PM",
+  "x1_key":"NO",
+  "h4_key":"NO"                                                                                                                     
+}
+
+
+],
+
+"others":[
+{
+  "freq":"60",
+  "wdg_lmb":"3",
+  "cooling_type":"3",
+  "cost_code":"3",
+
+
+  "phases":"3",
+  "cfr_vfr":"CFR",
+  "self_cool_ration":"1.67",
+  "fix_price_percentage":"0.0",
+
+  "receipt_margin_percentage":"0.0",
+  "eval_po":"0",
+  "oper_xtios":"Yes",
+
+  "loss_calc_at_step":"0",
+  "eval_pk":"0",
+  "det_costs":"Yes"
+
+}
+]
+},
+
+{
+"iD":2,
+"tabId": 1,
+"identification": "Reliance Power",
+"pType":"pType-6",
+
+"table":[
+{                                              
+"name" : "Terminal Node",
+"h1_key":"H1",
+"x2_key":"X2",
+"h2_key":"H2",
+"x1_key":"X1",
+"h4_key":"H4"                                                      
+} ,
+
+{                                                                  
+"name":"Rotated Power",
+"h1_key":"46.00",
+"x2_key":"96.00",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                
+},
+
+{                                                
+"name":"Rated Voltage",
+"h1_key":"115.50",
+"x2_key":"20.708",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                                                                   
+},
+
+{   
+"name":"connection",
+"h1_key":"D",
+"x2_key":"Y",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                                                                                   
+},
+
+{      
+"name":"Regulation Type",
+"h1_key":"L",
+"x2_key":"NO",
+"h2_key":"PM",
+"x1_key":"NO",
+"h4_key":"NO"                                                                                                                     
+}
+
+
+],
+"others":[
+{
+  "freq":"50",
+  "wdg_lmb":"3",
+  "cooling_type":"3",
+  "cost_code":"3",
+
+
+  "phases":"3",
+  "cfr_vfr":"CFR",
+  "self_cool_ration":"1.67",
+  "fix_price_percentage":"0.0",
+
+  "receipt_margin_percentage":"0.0",
+  "eval_po":"0",
+  "oper_xtios":"Yes",
+
+  "loss_calc_at_step":"0",
+  "eval_pk":"0",
+  "det_costs":"Yes"
+
+}
+]
+},
+
+
+
+{
+  "iD":3,
+  "tabId": 0,
+  "identification": "Lanco Power",
+  "pType":"pType-7",
+
+"table":[
+  {                                              
+  "name" : "Terminal Node",
+  "h1_key":"H1",
+  "x2_key":"X2",
+  "h2_key":"H2",
+  "x1_key":"X1",
+  "h4_key":"H4"                                                      
+} ,
+
+{                                                                  
+  "name":"Rotated Power",
+  "h1_key":"36.00",
+  "x2_key":"96.00",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                
+},
+
+{                                                
+  "name":"Rated Voltage",
+  "h1_key":"115.50",
+  "x2_key":"20.708",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                                                                   
+},
+
+{   
+  "name":"connection",
+  "h1_key":"D",
+  "x2_key":"Y",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                                                                                   
+},
+
+{      
+  "name":"Regulation Type",
+  "h1_key":"L",
+  "x2_key":"NO",
+  "h2_key":"PM",
+  "x1_key":"NO",
+  "h4_key":"NO"                                                                                                                     
+}
+
+
+],
+
+"others":[
+{
+  "freq":"60",
+  "wdg_lmb":"3",
+  "cooling_type":"3",
+  "cost_code":"3",
+
+
+  "phases":"3",
+  "cfr_vfr":"CFR",
+  "self_cool_ration":"1.67",
+  "fix_price_percentage":"0.0",
+
+  "receipt_margin_percentage":"0.0",
+  "eval_po":"0",
+  "oper_xtios":"Yes",
+
+  "loss_calc_at_step":"0",
+  "eval_pk":"0",
+  "det_costs":"Yes"
+
+}
+]
+},
+
+{
+"iD":3,
+"tabId": 1,
+"identification": "Lanco Power",
+"pType":"pType-8",
+
+"table":[
+{                                              
+"name" : "Terminal Node",
+"h1_key":"H1",
+"x2_key":"X2",
+"h2_key":"H2",
+"x1_key":"X1",
+"h4_key":"H4"                                                      
+} ,
+
+{                                                                  
+"name":"Rotated Power",
+"h1_key":"46.00",
+"x2_key":"96.00",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                
+},
+
+{                                                
+"name":"Rated Voltage",
+"h1_key":"115.50",
+"x2_key":"20.708",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                                                                   
+},
+
+{   
+"name":"connection",
+"h1_key":"D",
+"x2_key":"Y",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                                                                                   
+},
+
+{      
+"name":"Regulation Type",
+"h1_key":"L",
+"x2_key":"NO",
+"h2_key":"PM",
+"x1_key":"NO",
+"h4_key":"NO"                                                                                                                     
+}
+
+
+],
+"others":[
+{
+  "freq":"50",
+  "wdg_lmb":"3",
+  "cooling_type":"3",
+  "cost_code":"3",
+
+
+  "phases":"3",
+  "cfr_vfr":"CFR",
+  "self_cool_ration":"1.67",
+  "fix_price_percentage":"0.0",
+
+  "receipt_margin_percentage":"0.0",
+  "eval_po":"0",
+  "oper_xtios":"Yes",
+
+  "loss_calc_at_step":"0",
+  "eval_pk":"0",
+  "det_costs":"Yes"
+
+}
+]
+},
+
+
+
+{
+  "iD":4,
+  "tabId": 0,
+  "identification": "TSGenco Power",
+  "pType":"pType-9",
+
+"table":[
+  {                                              
+  "name" : "Terminal Node",
+  "h1_key":"H1",
+  "x2_key":"X2",
+  "h2_key":"H2",
+  "x1_key":"X1",
+  "h4_key":"H4"                                                      
+} ,
+
+{                                                                  
+  "name":"Rotated Power",
+  "h1_key":"36.00",
+  "x2_key":"96.00",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                
+},
+
+{                                                
+  "name":"Rated Voltage",
+  "h1_key":"115.50",
+  "x2_key":"20.708",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                                                                   
+},
+
+{   
+  "name":"connection",
+  "h1_key":"D",
+  "x2_key":"Y",
+  "h2_key":"-",
+  "x1_key":"-",
+  "h4_key":"-"                                                                                                                   
+},
+
+{      
+  "name":"Regulation Type",
+  "h1_key":"L",
+  "x2_key":"NO",
+  "h2_key":"PM",
+  "x1_key":"NO",
+  "h4_key":"NO"                                                                                                                     
+}
+
+
+],
+
+"others":[
+{
+  "freq":"60",
+  "wdg_lmb":"3",
+  "cooling_type":"3",
+  "cost_code":"3",
+
+
+  "phases":"3",
+  "cfr_vfr":"CFR",
+  "self_cool_ration":"1.67",
+  "fix_price_percentage":"0.0",
+
+  "receipt_margin_percentage":"0.0",
+  "eval_po":"0",
+  "oper_xtios":"Yes",
+
+  "loss_calc_at_step":"0",
+  "eval_pk":"0",
+  "det_costs":"Yes"
+
+}
+]
+},
+
+{
+"iD":4,
+"tabId": 1,
+"identification": "TSGenco Power",
+"pType":"pType-10",
+
+"table":[
+{                                              
+"name" : "Terminal Node",
+"h1_key":"H1",
+"x2_key":"X2",
+"h2_key":"H2",
+"x1_key":"X1",
+"h4_key":"H4"                                                      
+} ,
+
+{                                                                  
+"name":"Rotated Power",
+"h1_key":"46.00",
+"x2_key":"96.00",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                
+},
+
+{                                                
+"name":"Rated Voltage",
+"h1_key":"115.50",
+"x2_key":"20.708",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                                                                   
+},
+
+{   
+"name":"connection",
+"h1_key":"D",
+"x2_key":"Y",
+"h2_key":"-",
+"x1_key":"-",
+"h4_key":"-"                                                                                                                   
+},
+
+{      
+"name":"Regulation Type",
+"h1_key":"L",
+"x2_key":"NO",
+"h2_key":"PM",
+"x1_key":"NO",
+"h4_key":"NO"                                                                                                                     
+}
+
+
+],
+"others":[
+{
+  "freq":"50",
+  "wdg_lmb":"3",
+  "cooling_type":"3",
+  "cost_code":"3",
+
+
+  "phases":"3",
+  "cfr_vfr":"CFR",
+  "self_cool_ration":"1.67",
+  "fix_price_percentage":"0.0",
+
+  "receipt_margin_percentage":"0.0",
+  "eval_po":"0",
+  "oper_xtios":"Yes",
+
+  "loss_calc_at_step":"0",
+  "eval_pk":"0",
+  "det_costs":"Yes"
+
+}
+]
+}
+
+
+
+
+]

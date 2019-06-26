@@ -1,0 +1,83 @@
+[
+
+
+{
+    "id": 0,
+    "name":"Georgia Power",
+    "identification": "00",
+    "limbPitch":{"a":"-", "b":"1178", "c":"Limits"},
+    "limbHeight":{"a":"No", "b":"2272", "c":"680-2650"},
+    "coreDiameter":{"a":"No", "b":"546","c":"265-670"},
+    "limbFluxDensity":{"a":"No", "b":"1.5900", "c":"-1.5900"},
+    "reactanceTerminal":{"a":"Yes", "b":"7.14", "c":"_"},
+    "detailedCosts":"YES",
+    "lossEvaluationPO":"1335",
+    "PK":"YES",
+    "table1":[
+            { "opt" : "A", "spaceF":"0.7056", "wind_wdt":"17.8", "duct_wdt":"17", "Cu_arear":"516.37", "J":"1.63", "transF":"48.0", "strP":"0", "strM":"22", "rii":"2.6", "eddy":"0.0"} 
+         ],
+    "table2":[
+                  {
+                    "u1" : "138.0",
+                    "u2":"7.200",
+                    "u3":"4.160",
+                    "x1_2":"7.16",
+                    "x1_3":"12.27",
+                    "x2_3":"3.90",
+                    "pk1_2":"96.7",
+                    "pk1_3":"17.9",
+                    "pk2_3":"14.0",
+                    "posses":"22.1",
+                    "level":"88.8" 
+
+                }
+],
+
+"table3":[
+                  {
+                    "tnkW" : "2026",
+                    "tnkL":"4232",
+                    "tnkH":"4348",
+                    "trnspmss":"46788",
+                    "manCost":"273839",
+                    "ovnCost":"211537",
+                    "lossEval":"94228",
+                    "compPrice":"368066"
+                }
+],
+"others":[
+  {
+    "name":"Limb pitch",
+    "a":"-",
+    "b":"1178",
+    "c":"Limits"
+  },
+  {
+    "name":"Limb height",
+    "a":"No",
+    "b":"2272",
+    "c":"680-2650"
+  },
+  {
+    "name":"Core diameter",
+    "a":"No",
+    "b":"546",
+    "c":"265-670"
+  },
+  {
+    "name":"Limb flux density",
+    "a":"No",
+    "b":"1.5900",
+    "c":"-1.5900"
+  },
+  {
+    "name":"Reactance (Termal 1-2 %)",
+    "a":"Yes",
+    "b":"7.14",
+    "c":"_"
+  }
+  ]
+
+}
+
+]
