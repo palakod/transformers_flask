@@ -2,7 +2,7 @@ import sqlite3
 from flask_restful import Resource, reqparse
 import datetime
 
-class Transformers(object):
+class Transformers_get(Resource):
     def __init__(self, id, owner, json_payload, created_by, created_on, modified_by, modified_on, output, notes):
         self.id = id
         self.owner = owner
