@@ -17,7 +17,7 @@ create_table = 'CREATE TABLE transformers (id int, owner text, json_payload text
 cursor.execute(create_table)
 
 insert_query = 'INSERT INTO transformers VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
-
+ 
 transformers = [
     (1442, 'Bhanu', json_string,'Bhanu', '2019-06-01', 'Quinn', '2019-07-29', 90.5, "notes"),
     (1443, 'Vamshi', json_string,'John', '2018-12-20', 'Prakash', '2019-02-01', 97.5, "notes"),
