@@ -13,7 +13,7 @@ with open('performOptimize.json') as json_file:
     data = json.load(json_file)
 json_string = json.dumps(data)
 
-create_table = 'CREATE TABLE transformers (id int, owner text, json_payload text, created_by text, created_on date, modified_by text, modified_on date, output text, notes text )'
+create_table = 'CREATE TABLE transformers (_id int, owner text, json_payload text, created_by text, created_on date, modified_by text, modified_on date, output text, notes text )'
 cursor.execute(create_table)
 
 insert_query = 'INSERT INTO transformers VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
@@ -28,14 +28,16 @@ transformers = [
 cursor.executemany(insert_query, transformers)
 
 #def query_db()
-select_query = 'SELECT * FROM transformers'
-for row in cursor.execute(select_query):           # to get output in desired structure -bprakash
-    result_list = []
-    for i in row:
-        result_list.append(i)
-    
-    row_dict = dict(zip(header_list, result_list))
-    dict_list.append(row_dict)
+select_query = 'SELECT * FROM transformers WHERE _id = ?'
+# for row in cursor.execute(select_query):           # to get output in desired structure -bprakash
+#     result_list = []
+#     for i in row:
+#         result_list.append(i)
+
+_id = input ("Enter number :")
+result = cursor.execute(select_query, (_id,))
+row_dict = dict(zip(header_list, result))
+dict_list.append(row_dict)
 
 final_output = {'sucess' : True, 'total' : 9, 'page' : 1, 'data' : dict_list}  #format Mr.Reddy asked -bprakash
 
