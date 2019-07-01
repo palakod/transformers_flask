@@ -1,14 +1,9 @@
 import sqlite3
 import  json
 
-header_list = ['id', 'owner', 'json_payload', 'created_by', 'created_on', 'modified_by', 'modified_on', 'output', 'notes'] # to create a dict all the keys are put into a list -bprakash
-result_list = []                                   # query output to be stored in a list -bprakash
-dict_list = []                                     # final list of dictionaries made out of header_list and result_list -bprakash
-
 connection = sqlite3.connect('data.db')
 cursor = connection.cursor()
 
-# def read_json()
 with open('performOptimize.json') as json_file:  
     data = json.load(json_file)
 json_string = json.dumps(data)
@@ -26,24 +21,6 @@ transformers = [
 ]
 
 cursor.executemany(insert_query, transformers)
-
-#def query_db()
-select_query = 'SELECT * FROM transformers WHERE _id = ?'
-# for row in cursor.execute(select_query):           # to get output in desired structure -bprakash
-#     result_list = []
-#     for i in row:
-#         result_list.append(i)
-
-_id = input ("Enter number :")
-result = cursor.execute(select_query, (_id,))
-row_dict = dict(zip(header_list, result))
-dict_list.append(row_dict)
-
-final_output = {'sucess' : True, 'total' : 9, 'page' : 1, 'data' : dict_list}  #format Mr.Reddy asked -bprakash
-
-print(final_output)
-
-#return final_output
 
 connection.commit()
 connection.close()

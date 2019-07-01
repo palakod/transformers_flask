@@ -5,7 +5,7 @@ import datetime
 header_list = ['_id', 'owner', 'json_payload', 'created_by', 'created_on', 'modified_by', 'modified_on', 'output', 'notes']
 
 # Register a Transformer
-class TransformerRegister(Resource):
+class Transformers(Resource):
 
     parser = reqparse.RequestParser()
 
@@ -22,7 +22,7 @@ class TransformerRegister(Resource):
 
     def post(self):
 
-        data = TransformerRegister.parser.parse_args()
+        data = Transformers.parser.parse_args()
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
         query = "INSERT INTO transformers VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
@@ -30,12 +30,9 @@ class TransformerRegister(Resource):
         connection.commit()
         connection.close()
 
-        return {'message': 'Transformer is sucessfully registered!'}        
+        return {'message': 'Transformer is sucessfully registered!'}
 
-# List all the Transformers
-class TransformersList(Resource):
-
-    def get(self):
+    def get(self): # List all the Transformers from the db.
         
         dict_list = []                         
         connection = sqlite3.connect('data.db')
@@ -64,7 +61,7 @@ class TransformersByOwner(Resource):
         cursor = connection.cursor()
         query = 'SELECT * FROM transformers WHERE owner=?'
 
-        for row in cursor.execute(query, (owner,)):           
+        for row in cursor.execute(query, (owner,)):           # Since there can be a same owner for multiple transformers we use for loop to query.
             result_list = []
             for i in row:
                 result_list.append(i)
@@ -83,15 +80,36 @@ class TransformersByID(Resource):
                                  
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
-        query = 'SELECT * FROM transformers WHERE _id=?'
+        query = 'SELECT * FROM transformers WHERE _id=?'      # Since the id of transformer is unique, we don't need a for loop.
           
         result = cursor.execute(query, (_id,))
-        row = dict(zip(header_list, result))
+        output = result.fetchone()
+        row = dict(zip(header_list, output))
+
         final_output = {'sucess' : True, 'total' : 1, 'page' : 1, 'data' : row}  
 
         return final_output
 
 
+class ChangeOwner(Resource):
+
+    def put(self, _id, owner, new_owner):
+
+        connection = sqlite3.connect('data.db')
+        cursor = connection.cursor()
+
+        update = 'UPDATE transformers SET owner=? WHERE _id=? AND owner=?'
+        cursor.execute(update, (new_owner ,_id, owner, ))
+        connection.commit()
+
+        query = 'SELECT * FROM transformers WHERE _id=?'
+        result = cursor.execute(query, (_id,))
+        output = result.fetchone()
+        row = dict(zip(header_list, output))
+        
+        final_output = {'sucess' : True, 'total' : 1, 'page' : 1, 'data' : row}  
+
+        return final_output
 
 
 
