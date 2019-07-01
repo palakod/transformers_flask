@@ -4,6 +4,7 @@ import datetime
 
 header_list = ['_id', 'owner', 'json_payload', 'created_by', 'created_on', 'modified_by', 'modified_on', 'output', 'notes']
 
+# Register a Transformer
 class TransformerRegister(Resource):
 
     parser = reqparse.RequestParser()
@@ -31,6 +32,7 @@ class TransformerRegister(Resource):
 
         return {'message': 'Transformer is sucessfully registered!'}        
 
+# List all the Transformers
 class TransformersList(Resource):
 
     def get(self):
@@ -52,19 +54,44 @@ class TransformersList(Resource):
 
         return final_output
 
-class Transformers(Resource):
+# Get the list of Transformers by the 'Owner'.
+class TransformersByOwner(Resource):
 
-    def get_by_id(self, _id):
-
+    def get(self, owner):
+        
+        dict_list = []                         
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
-        query = 'SELECT * FROM transformers WHERE _id = ?'
+        query = 'SELECT * FROM transformers WHERE owner=?'
 
-        result = cursor.execute(query, (_id,))
-        row_dict = dict(zip(header_list, result))
-        final_output = {'sucess' : True, 'total' : 9, 'page' : 1, 'data' : row_dict}
+        for row in cursor.execute(query, (owner,)):           
+            result_list = []
+            for i in row:
+                result_list.append(i)
+        
+            row_dict = dict(zip(header_list, result_list))
+            dict_list.append(row_dict)
+
+            final_output = {'sucess' : True, 'total' : len(dict_list), 'page' : 1, 'data' : dict_list}  
 
         return final_output
+
+# Get the list of Transformers by the 'ID number'.
+class TransformersByID(Resource):
+
+    def get(self, _id):
+                                 
+        connection = sqlite3.connect('data.db')
+        cursor = connection.cursor()
+        query = 'SELECT * FROM transformers WHERE _id=?'
+          
+        result = cursor.execute(query, (_id,))
+        row = dict(zip(header_list, result))
+        final_output = {'sucess' : True, 'total' : 1, 'page' : 1, 'data' : row}  
+
+        return final_output
+
+
 
 
 

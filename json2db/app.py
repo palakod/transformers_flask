@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, render_template
 from flask_restful import Resource, Api, reqparse
 
-from transformers import TransformerRegister, TransformersList, Transformers
+from transformers import TransformerRegister, TransformersList, TransformersByOwner, TransformersByID
 
 app = Flask(__name__)
 app.config['PROPAGATE_EXCEPTIONS'] = True # To allow flask propagating exception even if debug is set to false on app
@@ -10,7 +10,8 @@ api = Api(app)
 
 api.add_resource(TransformerRegister, '/register')
 api.add_resource(TransformersList, '/list')
-api.add_resource(Transformers, '/api/<int:_id>')
+api.add_resource(TransformersByOwner, '/api/<string:owner>')
+api.add_resource(TransformersByID, '/api/<int:_id>')
 
 if __name__ == '__main__':
     app.run(debug=True)  # important to mention debug=True
