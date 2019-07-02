@@ -7,22 +7,20 @@ header_list = ['_id', 'owner', 'json_payload', 'created_by', 'created_on', 'modi
 # Register a Transformer
 class Transformers(Resource):
 
-    parser = reqparse.RequestParser()
-
-    parser.add_argument('_id', type = int, required = True, help = "This field cannot be blank.")
-    parser.add_argument('owner', type = str, required = True, help = "This field cannot be blank.")
-    parser.add_argument('json_payload', type = str, required = True, help = "This field cannot be blank.")
-    parser.add_argument('created_by', type = str, required = True, help = "This field cannot be blank.")
-    parser.add_argument('created_on', type = str, required = True, help = "This field cannot be blank.")
-    parser.add_argument('modified_by', type = str, required = True, help = "This field cannot be blank.")
-    parser.add_argument('modified_on', type = str, required = True, help = "This field cannot be blank.")
-    parser.add_argument('output', type = str, required = True, help = "This field cannot be blank.")
-    parser.add_argument('notes', type = str, required = False)
-
-
     def post(self):
 
-        data = Transformers.parser.parse_args()
+        parser = reqparse.RequestParser()
+
+        parser.add_argument('_id', type = int, required = True, help = "This field cannot be blank.")
+        parser.add_argument('owner', type = str, required = True, help = "This field cannot be blank.")
+        parser.add_argument('json_payload', type = str, required = True, help = "This field cannot be blank.")
+        parser.add_argument('created_by', type = str, required = True, help = "This field cannot be blank.")
+        parser.add_argument('created_on', type = str, required = True, help = "This field cannot be blank.")
+        parser.add_argument('modified_by', type = str, required = True, help = "This field cannot be blank.")
+        parser.add_argument('modified_on', type = str, required = True, help = "This field cannot be blank.")
+        parser.add_argument('output', type = str, required = True, help = "This field cannot be blank.")
+        parser.add_argument('notes', type = str, required = False)
+        data = parser.parse_args()
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
         query = "INSERT INTO transformers VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
@@ -50,8 +48,63 @@ class Transformers(Resource):
             final_output = {'sucess' : True, 'total' : 9, 'page' : 1, 'data' : dict_list}  
 
         return final_output
+    
+    def put(self): # Change the owner of the transformer(project).
 
-# Get the list of Transformers by the 'Owner'.
+        parser = reqparse.RequestParser()
+
+        parser.add_argument('_id', type = int, required = True, help = "This field cannot be blank.")
+        parser.add_argument('owner', type = str, required = True, help = "This field cannot be blank.")
+
+        data = parser.parse_args()
+        connection = sqlite3.connect('data.db')
+        cursor = connection.cursor()
+
+        update = 'UPDATE transformers SET owner=? WHERE _id=?'
+        cursor.execute(update, (data['owner'], data['_id']))
+        connection.commit()
+
+        query = 'SELECT * FROM transformers WHERE _id=?'
+        result = cursor.execute(query, (data['_id'],))
+        output = result.fetchone()                            #fetchone()	This method returns one record as a tuple, If there are no more records then it returns None
+        row = dict(zip(header_list, output))
+        
+        final_output = {'sucess' : True, 'total' : 1, 'page' : 1, 'data' : row}  
+
+        return final_output
+
+    def delete(self):
+
+        dict_list = [] 
+
+        parser = reqparse.RequestParser()
+
+        parser.add_argument('_id', type = int, required = True, help = "This field cannot be blank.")
+        # parser.add_argument('owner', type = str, required = True, help = "This field cannot be blank.")
+
+        data = parser.parse_args()
+        connection = sqlite3.connect('data.db')
+        cursor = connection.cursor()
+
+        delete_query = 'DELETE FROM transformers WHERE _id =?' #AND owner=?'
+        cursor.execute(delete_query, (data['_id'],))
+
+        query = 'SELECT * FROM transformers'
+
+        for row in cursor.execute(query):           
+            result_list = []
+            for i in row:
+                result_list.append(i)
+        
+            row_dict = dict(zip(header_list, result_list))
+            dict_list.append(row_dict)
+
+            final_output = {'sucess' : True, 'total' : len(dict_list), 'page' : 1, 'data' : dict_list}  
+
+        return final_output
+
+
+# Get the list of Transformers owned by 'owner'.
 class TransformersByOwner(Resource):
 
     def get(self, owner):
@@ -86,27 +139,6 @@ class TransformersByID(Resource):
         output = result.fetchone()
         row = dict(zip(header_list, output))
 
-        final_output = {'sucess' : True, 'total' : 1, 'page' : 1, 'data' : row}  
-
-        return final_output
-
-
-class ChangeOwner(Resource):
-
-    def put(self, _id, owner, new_owner):
-
-        connection = sqlite3.connect('data.db')
-        cursor = connection.cursor()
-
-        update = 'UPDATE transformers SET owner=? WHERE _id=? AND owner=?'
-        cursor.execute(update, (new_owner ,_id, owner, ))
-        connection.commit()
-
-        query = 'SELECT * FROM transformers WHERE _id=?'
-        result = cursor.execute(query, (_id,))
-        output = result.fetchone()
-        row = dict(zip(header_list, output))
-        
         final_output = {'sucess' : True, 'total' : 1, 'page' : 1, 'data' : row}  
 
         return final_output
