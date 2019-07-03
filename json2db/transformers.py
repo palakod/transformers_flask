@@ -1,8 +1,7 @@
 import sqlite3
 from flask_restful import Resource, reqparse
-import datetime
 
-header_list = ['_id', 'owner', 'json_payload', 'created_by', 'created_on', 'modified_by', 'modified_on', 'output', 'notes']
+header_list = ['_id', 'user_id', 'json_payload', 'created_by', 'created_on', 'modified_by', 'modified_on', 'output', 'notes', 'owner_name']
 
 # Register a Transformer
 class Transformers(Resource):
@@ -12,7 +11,7 @@ class Transformers(Resource):
         parser = reqparse.RequestParser()
 
         parser.add_argument('_id', type = int, required = True, help = "This field cannot be blank.")
-        parser.add_argument('owner', type = str, required = True, help = "This field cannot be blank.")
+        parser.add_argument('user_id', type = str, required = True, help = "This field cannot be blank.")
         parser.add_argument('json_payload', type = str, required = True, help = "This field cannot be blank.")
         parser.add_argument('created_by', type = str, required = True, help = "This field cannot be blank.")
         parser.add_argument('created_on', type = str, required = True, help = "This field cannot be blank.")
@@ -24,7 +23,7 @@ class Transformers(Resource):
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
         query = "INSERT INTO transformers VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        cursor.execute(query, (data['_id'], data['owner'], data["json_payload"], data['created_by'], data['created_on'], data['modified_by'], data['modified_on'], data['output'], data['notes']))
+        cursor.execute(query, (data['_id'], data['user_id'], data["json_payload"], data['created_by'], data['created_on'], data['modified_by'], data['modified_on'], data['output'], data['notes']))
         connection.commit()
         connection.close()
 
@@ -35,7 +34,7 @@ class Transformers(Resource):
         dict_list = []                         
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
-        query = 'SELECT * FROM transformers'
+        query = 'select transformers.*, (users.first_name || " " || users.last_name) as owner_name from transformers left join users on transformers.user_id = users.user_id'
 
         for row in cursor.execute(query):           
             result_list = []
@@ -54,17 +53,17 @@ class Transformers(Resource):
         parser = reqparse.RequestParser()
 
         parser.add_argument('_id', type = int, required = True, help = "This field cannot be blank.")
-        parser.add_argument('owner', type = str, required = True, help = "This field cannot be blank.")
+        parser.add_argument('user_id', type = str, required = True, help = "This field cannot be blank.")
 
         data = parser.parse_args()
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
-        update = 'UPDATE transformers SET owner=? WHERE _id=?'
-        cursor.execute(update, (data['owner'], data['_id']))
+        update = 'UPDATE transformers SET user_id=? WHERE _id=?'
+        cursor.execute(update, (data['user_id'], data['_id']))
         connection.commit()
 
-        query = 'SELECT * FROM transformers WHERE _id=?'
+        query = 'SELECT transformers.*, (users.first_name || " " || users.last_name) AS owner_name FROM transformers LEFT JOIN users ON transformers.user_id = users.user_id WHERE _id=?'
         result = cursor.execute(query, (data['_id'],))
         output = result.fetchone()                            #fetchone()	This method returns one record as a tuple, If there are no more records then it returns None
         row = dict(zip(header_list, output))
@@ -80,7 +79,6 @@ class Transformers(Resource):
         parser = reqparse.RequestParser()
 
         parser.add_argument('_id', type = int, required = True, help = "This field cannot be blank.")
-        # parser.add_argument('owner', type = str, required = True, help = "This field cannot be blank.")
 
         data = parser.parse_args()
         connection = sqlite3.connect('data.db')
@@ -105,16 +103,16 @@ class Transformers(Resource):
 
 
 # Get the list of Transformers owned by 'owner'.
-class TransformersByOwner(Resource):
+class TransformersByOwnerID(Resource):
 
-    def get(self, owner):
+    def get(self, user_id):
         
         dict_list = []                         
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
-        query = 'SELECT * FROM transformers WHERE owner=?'
+        query = 'SELECT transformers.*, (users.first_name || " " || users.last_name) AS owner_name FROM transformers LEFT JOIN users ON transformers.user_id = users.user_id WHERE transformers.user_id=?'
 
-        for row in cursor.execute(query, (owner,)):           # Since there can be a same owner for multiple transformers we use for loop to query.
+        for row in cursor.execute(query, (user_id,)):           # Since there can be a same owner for multiple transformers we use for loop to query.
             result_list = []
             for i in row:
                 result_list.append(i)
@@ -133,7 +131,7 @@ class TransformersByID(Resource):
                                  
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
-        query = 'SELECT * FROM transformers WHERE _id=?'      # Since the id of transformer is unique, we don't need a for loop.
+        query = 'SELECT transformers.*, (users.first_name || " " || users.last_name) AS owner_name FROM transformers LEFT JOIN users ON transformers.user_id = users.user_id WHERE _id=?'      # Since the id of transformer is unique, we don't need a for loop.
           
         result = cursor.execute(query, (_id,))
         output = result.fetchone()
